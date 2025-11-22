@@ -42,10 +42,10 @@ export default function BentoGrid({ projects = [] }: BentoGridProps) {
               index === 0 || index === 3 ? 'md:col-span-2' : ''
             }`}
           >
-            <Card className="h-full flex flex-col overflow-hidden border-none bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
+            <Card className="h-full flex flex-col overflow-hidden border border-border/50 bg-background/50 backdrop-blur-sm hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group-hover:-translate-y-1">
               <div className="relative h-48 md:h-64 w-full overflow-hidden">
                  {/* Placeholder for image if no ID, or fetch from Appwrite Storage */}
-                 <div className="absolute inset-0 bg-muted flex items-center justify-center text-muted-foreground">
+                 <div className="absolute inset-0 bg-muted/50 flex items-center justify-center text-muted-foreground group-hover:scale-105 transition-transform duration-500">
                     {project.coverImageId ? (
                         // In a real app, use a helper to get the view URL
                         <span className="text-sm">Image: {project.coverImageId}</span>

@@ -25,8 +25,10 @@ export default function Hero({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+        className="relative"
       >
-        <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-6 leading-tight">
+        <div className="absolute -inset-1 bg-linear-to-r from-primary to-purple-600 rounded-lg blur opacity-20 animate-pulse"></div>
+        <h1 className="relative text-5xl md:text-8xl font-bold tracking-tight mb-6 leading-tight bg-clip-text text-transparent bg-linear-to-b from-foreground to-foreground/70">
           {headline.split(' ').map((word, i) => (
             <span key={i} className="inline-block mr-4">
               {word}
@@ -60,6 +62,16 @@ export default function Hero({
             Download CV <Download className="ml-2 h-5 w-5" />
           </a>
         </Button>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-muted-foreground"
+      >
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <div className="w-px h-12 bg-linear-to-b from-muted-foreground/0 via-muted-foreground/50 to-muted-foreground/0"></div>
       </motion.div>
     </section>
   );
